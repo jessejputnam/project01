@@ -1,9 +1,10 @@
-import pandas as pd
 import numpy as np
+from lib.utils import clean_name
 
 
 def get_country_code(row, country_codes, country_dict):
     """Get valid country code if exists in any address, return NaN if not"""
+
     for i in range(3):
         val = row[f"shipper_party_address_{4 - i}"]
 
@@ -15,16 +16,16 @@ def get_country_code(row, country_codes, country_dict):
     return np.nan
 
 
-def clean_row(row, country_codes, country_dict):
+def clean_shipper(row, country_codes, country_dict):
     """Cleans the row by fixing naming issues  and adding correct country code if found"""
+    shipper_name = row["shipper_party_name"]
+    address_1 = row["shipper_party_address_1"]
+    code = row["country_code"]
 
-    # Handle the mr/mrs error
-    if "MR. AND/OR" in row["shipper_party_name"]:
-        row["shipper_party_name"] = row["shipper_party_address_1"]
+    # Clean name
+    row["shipper_party_name"] = clean_name(shipper_name, address_1)
 
-    if row["country_code"] is not np.nan:
-        if row["country_code"] in country_codes:
-            return row
+    # Clean country code
     row["country_code"] = get_country_code(row, country_codes, country_dict)
 
     return row
