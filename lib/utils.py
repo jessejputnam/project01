@@ -34,12 +34,6 @@ def get_country_code(row, col_prefix, country_codes, country_dict):
     return np.nan
 
 
-def remove_incorrect_codes(code, country_codes):
-    if code in country_codes:
-        return code
-    return np.nan
-
-
 def clean_row(row, col_prefix, country_codes, country_dict):
     """Cleans the row by fixing naming issues and adding correct country code if found"""
     entity_name = row[f"{col_prefix}_name"]
@@ -52,6 +46,18 @@ def clean_row(row, col_prefix, country_codes, country_dict):
     row["country_code"] = get_country_code(row, col_prefix, country_codes, country_dict)
 
     return row
+
+
+####################################################################################
+
+
+def remove_incorrect_codes(code, country_codes):
+    if code in country_codes:
+        return code
+    return np.nan
+
+
+####################################################################################
 
 
 def get_id_nums(name_col):
