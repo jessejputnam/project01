@@ -9,7 +9,7 @@ def get_country_code(row, country_codes):
     return np.nan
 
 
-def clean_consignee(row, country_codes):
+def clean_consignee(row, col_name, country_codes, country_dict=None):
     """Cleans the row by fixing naming issues and adding correct country code if found"""
     consignee_name = row["consignee_name"]
     code = row["country_code"]
