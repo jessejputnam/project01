@@ -1,0 +1,4 @@
+- Is your silver layer data appropriately normalized? If not, what would you have to do to normalize it fully
+- If you did not denormalize your gold layer, provide a small description as to why not. If the data was much larger, would denormalization be beneficial? How would you go about denormalizing it
+- If you were given 2 more weeks on this, how would your approach have changed
+- What were the biggest blockers you found yourself facing
