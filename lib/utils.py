@@ -1,12 +1,12 @@
 import numpy as np
 
 
-def data_fetch_url(layer, table, year, part):
+def get_data_url(layer, table, year=None, part=None):
+    """Get the URL for data file"""
+    if year is None:
+        return f"data/{layer}_layer/{table}.csv"
+
     return f"data/{layer}_layer/{table}_20{year}_part_{part}.csv"
-
-
-def data_send_url(layer, table):
-    return f"data/{layer}_layer/{table}.csv"
 
 
 ####################################################################################
@@ -63,6 +63,7 @@ def clean_row(row, col_prefix, country_codes, country_dict):
 
 
 def remove_incorrect_codes(code, country_codes):
+    """Remove country codes that are not found in alpha-2 list"""
     if code in country_codes:
         return code
     return np.nan
