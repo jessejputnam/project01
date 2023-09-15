@@ -1,6 +1,17 @@
 import numpy as np
 
 
+def data_fetch_url(layer, table, year, part):
+    return f"/Users/jesseputnam/cs-learning/skillstorm/project01/data/{layer}_layer/{table}_20{year}_part_{part}.csv"
+
+
+def data_send_url(layer, table):
+    return f"/Users/jesseputnam/cs-learning/skillstorm/project01/data/{layer}_layer/{table}.csv"
+
+
+####################################################################################
+
+
 def clean_name(entity_name, address_1):
     # Handle the mr/mrs error
     if entity_name in ["MR. AND/OR MRS.", "MR.", "MRS."]:
