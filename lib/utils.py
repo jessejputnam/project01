@@ -2,11 +2,11 @@ import numpy as np
 
 
 def data_fetch_url(layer, table, year, part):
-    return f"/Users/jesseputnam/cs-learning/skillstorm/project01/data/{layer}_layer/{table}_20{year}_part_{part}.csv"
+    return f"data/{layer}_layer/{table}_20{year}_part_{part}.csv"
 
 
 def data_send_url(layer, table):
-    return f"/Users/jesseputnam/cs-learning/skillstorm/project01/data/{layer}_layer/{table}.csv"
+    return f"data/{layer}_layer/{table}.csv"
 
 
 ####################################################################################
